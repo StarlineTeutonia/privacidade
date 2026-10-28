@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade · Starline Softphone</title>
+<meta name="description" content="Política de Privacidade do aplicativo Starline Softphone para Android, da Starline Tecnologia e Comunicação Ltda: quais dados o app usa, para quê, com quem são compartilhados e como exercer seus direitos pela LGPD.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#185E97">
+<style>
+  :root {
+    --brand: #185E97;
+    --brand-dark: #114A78;
+    --brand-tint: #E6F1FA;
+    --accent: #C8760F;
+    --accent-tint: #FBF1E3;
+    --ink: #17202B;
+    --muted: #556273;
+    --line: #D9E3EC;
+    --bg: #F4F7FA;
+    --card: #FFFFFF;
+    --todo-bg: #FFF4C7;
+    --todo-ink: #5E4300;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow-wrap: break-word;
+  }
+  a { color: var(--brand); text-underline-offset: 2px; }
+  a:hover { color: var(--brand-dark); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .92em; background: var(--brand-tint); padding: 0 .3em; border-radius: 4px; overflow-wrap: anywhere; }
+  mark.todo {
+    background: var(--todo-bg); color: var(--todo-ink);
+    border: 1px dashed var(--accent); border-radius: 4px;
+    padding: 0 .3em; font-weight: 600; font-size: .92em;
+  }
+
+  /* Cabeçalho */
+  .hero { background: var(--brand); color: #fff; }
+  .hero-inner { max-width: 48rem; margin: 0 auto; padding: 28px 16px 30px; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .brand svg { flex: none; width: 44px; height: 44px; border-radius: 11px; }
+  .brand-name { font-weight: 700; font-size: 1.05rem; letter-spacing: .01em; }
+  .brand-sub { display: block; font-size: .85rem; font-weight: 400; opacity: .85; }
+  .hero h1 { margin: 0 0 8px; font-size: clamp(1.7rem, 5.5vw, 2.3rem); line-height: 1.2; }
+  .hero p { margin: 0; opacity: .92; }
+  .dates { margin-top: 14px !important; font-size: .9rem; }
+  .dates mark.todo { color: var(--todo-ink); }
+
+  main { max-width: 48rem; margin: 0 auto; padding: 0 16px 40px; }
+
+  /* Em resumo */
+  .summary {
+    background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--accent);
+    border-radius: 14px; padding: 20px 20px 8px; margin: -14px 0 28px; position: relative;
+    box-shadow: 0 6px 20px rgba(17, 74, 120, .08);
+  }
+  .summary h2 { margin: 0 0 10px; font-size: 1.25rem; color: var(--brand-dark); }
+  .summary ul { margin: 0; padding-left: 1.2em; }
+  .summary li { margin-bottom: 10px; }
+
+  /* Sumário */
+  nav.toc { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 32px; }
+  nav.toc h2 { margin: 0 0 8px; font-size: 1.05rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  nav.toc ol { margin: 0; padding-left: 1.4em; columns: 1; }
+  nav.toc li { margin: 4px 0; break-inside: avoid; }
+  @media (min-width: 640px) { nav.toc ol { columns: 2; column-gap: 32px; } }
+
+  /* Seções */
+  section { margin: 0 0 36px; scroll-margin-top: 16px; }
+  h2 { font-size: 1.4rem; line-height: 1.3; margin: 0 0 12px; color: var(--brand-dark); }
+  h2 .num { color: var(--accent); margin-right: .35em; }
+  h3 { font-size: 1.08rem; margin: 0 0 6px; color: var(--ink); }
+  p { margin: 0 0 12px; }
+  ul, ol { padding-left: 1.3em; margin: 0 0 12px; }
+  li { margin-bottom: 6px; }
+
+  .callout {
+    background: var(--brand-tint); border-left: 4px solid var(--brand);
+    border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 14px 0;
+  }
+  .callout.warn { background: var(--accent-tint); border-left-color: var(--accent); }
+  .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 18px 6px; margin: 0 0 14px;
+  }
+  .card-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 12px; margin-bottom: 8px; }
+  .card-head h3 { margin: 0; }
+  .tag { font-size: .78rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+  .tag.req { background: var(--brand-tint); color: var(--brand-dark); }
+  .tag.opt { background: var(--accent-tint); color: #7A4706; }
+  dl { margin: 0; }
+  dt { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-top: 6px; }
+  dd { margin: 2px 0 10px; }
+  dd ul { margin-bottom: 4px; }
+
+  .steps li { margin-bottom: 10px; }
+  .path { font-weight: 600; color: var(--brand-dark); }
+
+  .contact { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .contact dt { margin-top: 10px; }
+  .contact dt:first-child { margin-top: 0; }
+
+  footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+  footer .inner { max-width: 48rem; margin: 0 auto; padding: 20px 16px 32px; }
+  footer p { margin: 0 0 6px; }
+
+  @media print {
+    body { background: #fff; font-size: 11pt; }
+    .hero { background: #fff; color: var(--ink); border-bottom: 2px solid var(--brand); }
+    .summary { margin-top: 12px; box-shadow: none; }
+    nav.toc { display: none; }
+    section, .card { break-inside: avoid; }
+    a { color: var(--ink); }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="brand">
+      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <rect width="48" height="48" rx="11" fill="#21201D"/>
+        <path d="M33.5 15.2A13 13 0 1 0 33.5 32.8" fill="none" stroke="#2E86C9" stroke-width="5.2" stroke-linecap="round"/>
+        <circle cx="36.2" cy="20.6" r="3" fill="#C8760F"/>
+        <circle cx="36.2" cy="27.4" r="3" fill="#C8760F"/>
+      </svg>
+      <span class="brand-name">Starline Softphone<span class="brand-sub">Starline Tecnologia e Comunicação Ltda</span></span>
+    </div>
+    <h1>Política de Privacidade</h1>
+    <p>Como o aplicativo Starline Softphone para Android usa e protege os seus dados.</p>
+    <p class="dates">Última atualização: 28 de outubro de 2026 · Vigente a partir de: 28 de outubro de 2026</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="summary" role="note" aria-labelledby="resumo">
+    <h2 id="resumo">Em resumo</h2>
+    <ul>
+      <li>O <strong>Starline Softphone</strong> é uma ferramenta de trabalho. Ele transforma o celular em um <strong>ramal do telefone da empresa</strong> e dá acesso ao <strong>StarAPI</strong>, o atendimento por WhatsApp da Starline. A Starline fornece o app à empresa em que você trabalha. <strong>O app não cria contas</strong>: o ramal e o acesso ao StarAPI vêm da sua empresa.</li>
+      <li>Usamos seus dados <strong>para o app funcionar</strong>: conectar o ramal, fazer e receber ligações (inclusive com o celular bloqueado), mostrar e enviar mensagens do StarAPI e dar suporte técnico. A exceção são as bibliotecas do Google usadas no app (o Firebase, que entrega os avisos de ligação, e o leitor de QR Code): elas enviam ao Google dados técnicos do aparelho, como modelo e versões, que o Google também usa em diagnóstico e estatísticas das próprias bibliotecas (veja a <a href="#dados">seção 2</a>).</li>
+      <li><strong>Não vendemos dados, não mostramos anúncios</strong> e não acompanhamos o que você faz no app para criar perfis.</li>
+      <li>Os <strong>contatos</strong> que você importa e o <strong>histórico de ligações do app</strong> ficam <strong>só no seu celular</strong>. O PABX da sua empresa mantém o próprio registro das ligações (veja a <a href="#dados">seção 2</a>).</li>
+      <li><strong>O app não grava ligações.</strong> Localização, fotos e arquivos só saem do celular quando <strong>você mesmo</strong> os envia em uma conversa.</li>
+      <li>Para a ligação tocar com o celular bloqueado, o <strong>servidor de push da Starline</strong> guarda o número do ramal e a senha dele, que fica <strong>cifrada</strong>, e usa o Firebase, do Google, para acordar o celular (cada aviso leva o número e o nome de quem está ligando). Antes de ativar o ramal, o app avisa isso e só usa o servidor se você tocar em “Continuar”; depois, dá para desligar em Ajustes a qualquer momento.</li>
+      <li>Os dados do app viajam por <strong>conexões criptografadas</strong> (os detalhes e os limites estão na <a href="#seguranca">seção 8</a>). Para pedir acesso, correção ou exclusão dos seus dados, escreva para <a href="mailto:connect@starline.tec.br">connect@starline.tec.br</a>.</li>
+    </ul>
+  </div>
+
+  <nav class="toc" aria-labelledby="sumario">
+    <h2 id="sumario">Nesta página</h2>
+    <ol>
+      <li><a href="#quem-somos">Quem somos e quem decide sobre os dados</a></li>
+      <li><a href="#dados">Quais dados o app usa e para quê</a></li>
+      <li><a href="#no-celular">O que fica só no seu celular</a></li>
+      <li><a href="#bases-legais">Bases legais (LGPD)</a></li>
+      <li><a href="#compartilhamento">Com quem os dados são compartilhados</a></li>
+      <li><a href="#internacional">Transferência para outros países</a></li>
+      <li><a href="#retencao">Por quanto tempo guardamos</a></li>
+      <li><a href="#seguranca">Segurança</a></li>
+      <li><a href="#direitos">Seus direitos e como exercê-los</a></li>
+      <li><a href="#apagar">Como apagar seus dados</a></li>
+      <li><a href="#menores">Crianças e adolescentes</a></li>
+      <li><a href="#alteracoes">Alterações nesta política</a></li>
+      <li><a href="#contato">Contato e encarregado de dados</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quem-somos">
+    <h2><span class="num">1.</span>Quem somos e quem decide sobre os dados</h2>
+    <p>O aplicativo <strong>Starline Softphone</strong> (identificação na loja: <code>br.tec.starline.softphone</code>) é desenvolvido pela <strong>Starline Tecnologia e Comunicação Ltda</strong> (“Starline”, “nós”), CNPJ 51.006.857/0001-50, com sede na Rua Santos Dumont, 1022, Sala 202, Bairro Languiru, Teutônia/RS, CEP 95890-000.</p>
+    <p>A Starline fornece o app a empresas que contratam os nossos serviços de telefonia e de atendimento (as “<strong>empresas clientes</strong>”). Elas entregam o app aos seus funcionários e colaboradores, que são os usuários (“você”). O número do ramal, a senha e o acesso ao StarAPI são criados pela empresa cliente ou pela Starline a pedido dela.</p>
+    <p>Pela Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018), os papéis são estes:</p>
+    <ul>
+      <li><strong>A Starline é a controladora</strong> dos dados técnicos de que o app precisa para funcionar e para o suporte: o cadastro no servidor de push, os identificadores do aparelho, os registros técnicos dos nossos servidores e o diagnóstico que você decidir nos enviar.</li>
+      <li><strong>A empresa cliente é a controladora e a Starline é operadora</strong> das ligações da empresa (números, registros de chamadas) e das conversas do StarAPI, incluindo os dados dos clientes da empresa atendidos por ali. A empresa cliente decide como esses dados são usados e por quanto tempo são guardados. A Starline os trata seguindo as instruções dela e o contrato.</li>
+    </ul>
+    <p>Se você conversou pelo WhatsApp com uma empresa que usa o StarAPI, procure primeiro essa empresa para tratar dos seus dados. Nós também podemos ajudar (veja a <a href="#direitos">seção 9</a>).</p>
+    <div class="callout">
+      <p><strong>Importante:</strong> para o app funcionar, é indispensável usar o número do ramal, a senha dele e os dados de conexão. Sem eles, não há como fazer nem receber ligações. Os demais recursos (StarAPI, localização, anexos, importar contatos) só são usados se você ou a sua empresa escolherem.</p>
+    </div>
+    <p>A partir da versão 2.5.0, esta política também pode ser aberta no próprio app, em <span class="path">Ajustes → Política de Privacidade</span> (abaixo da versão do app).</p>
+  </section>
+
+  <!-- 2 -->
+  <section id="dados">
+    <h2><span class="num">2.</span>Quais dados o app usa e para quê</h2>
+    <p>Abaixo está cada tipo de dado, para que ele serve e para onde vai. “PABX” é a central telefônica da sua empresa, operada pelo provedor de telefonia contratado pela Starline.</p>
+
+    <div class="card">
+      <div class="card-head"><h3>Ramal e conexão</h3><span class="tag req">Necessário</span></div>
+      <dl>
+        <dt>Quais dados</dt>
+        <dd>Número do ramal, senha, domínio e endereço do servidor de telefonia (lidos do QR Code ou digitados por você); um identificador aleatório criado pelo app para a conexão; o endereço IP e outros dados técnicos da conexão.</dd>
+        <dt>Para quê</dt>
+        <dd>Conectar o ramal ao PABX e mantê-lo pronto para receber ligações.</dd>
+        <dt>Para onde vai</dt>
+        <dd>
+          <ul>
+            <li>Para o PABX. A senha não viaja em texto até o PABX: o app usa um método de autenticação que envia só uma prova calculada a partir dela.</li>
+            <li>Com o servidor de push ligado (o padrão), o ramal e a senha também vão para o servidor da Starline, como explicado no item “Servidor de push da Starline”, abaixo.</li>
+            <li>Se o QR Code for do tipo “Softphone” do PABX, o app busca a configuração do ramal (usuário, senha e domínio) nesse servidor, por conexão segura. Nos outros tipos, a configuração já vem no próprio código. Só são aceitos QR Codes cujo servidor de telefonia é da Starline (<code>starline.tec.br</code>).</li>
+          </ul>
+        </dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Ligações</h3><span class="tag req">Necessário</span></div>
+      <dl>
+        <dt>Quais dados</dt>
+        <dd>Números para os quais você liga ou transfere; número e nome de quem liga para você; data, hora, duração e situação das ligações; teclas digitadas durante a ligação (por exemplo, em menus de atendimento); a sua voz durante a ligação.</dd>
+        <dt>Para quê</dt>
+        <dd>Fazer, receber, transferir e pôr ligações em espera, mostrar quem está ligando e montar o histórico de ligações no seu celular.</dd>
+        <dt>Para onde vai</dt>
+        <dd>
+          <ul>
+            <li>A voz e os dados da ligação vão para o PABX. Ligações para números de fora seguem do PABX pelas redes das operadoras de telefonia.</li>
+            <li>Para montar o áudio, o app consulta um servidor do Google (chamado STUN) e, se outro servidor STUN tiver sido configurado (em Ajustes ou no QR Code), também esse. Eles veem apenas o endereço IP público do seu celular.</li>
+            <li><strong>O app não grava ligações.</strong> O PABX guarda registros das ligações (como número, data, hora e duração) e pode gravar ligações, se a gravação estiver ativada para a sua empresa.</li>
+            <li>Durante a ligação, o app mede a qualidade do áudio (por exemplo, perda de pacotes, atrasos e se a rede é Wi-Fi ou dados móveis). Isso serve só para o diagnóstico. O conteúdo da conversa não é analisado.</li>
+          </ul>
+        </dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Servidor de push da Starline</h3><span class="tag opt">Vem ligado · pode desligar</span></div>
+      <dl>
+        <dt>Quais dados</dt>
+        <dd>Número do ramal, domínio, endereço do servidor de telefonia e a <strong>senha do ramal</strong>; o código de notificação do celular (token do Firebase); um identificador do aparelho e uma chave de acesso, criados pelo servidor no cadastro (no servidor fica só uma versão embaralhada da chave, chamada <em>hash</em>); o endereço SIP fixo do aparelho, usado para a ligação encontrar o celular certo; datas do cadastro e da última conexão; situação do ramal.</dd>
+        <dt>Para quê</dt>
+        <dd>Fazer a ligação tocar mesmo com o celular bloqueado, com o app fechado ou quando a conexão do celular cai por alguns instantes. Enquanto o celular “dorme”, o servidor mantém o ramal conectado ao PABX, segura a ligação por até 45 segundos e acorda o celular para ela tocar.</dd>
+        <dt>Para onde vai</dt>
+        <dd>
+          <ul>
+            <li>Para o servidor da Starline em <code>push.starline.tec.br</code>, onde a senha fica guardada de forma cifrada. O servidor precisa dela para manter o ramal conectado em seu nome. Os demais dados do cadastro (como o número do ramal) não são cifrados, mas ficam em um arquivo de acesso restrito.</li>
+            <li>Com essa opção ligada, os dados de controle das ligações (quem liga, para onde, atender, desligar) passam pelo servidor. <strong>A voz nunca passa por ele.</strong></li>
+            <li>A conexão com esse servidor passa pela rede da Cloudflare, que tem acesso a esses dados durante a passagem, inclusive à senha no momento do cadastro (veja a <a href="#compartilhamento">seção 5</a>).</li>
+          </ul>
+        </dd>
+        <dt>Aviso no app</dt>
+        <dd>Ao ativar o ramal (e, para quem já usava o app antes da versão 2.5.0, na primeira abertura dela), o app explica que o ramal e a senha ficam guardados no servidor de push e só segue com ele se você tocar em “Continuar”. Em “Não usar o servidor de push”, nada é enviado a esse servidor.</dd>
+        <dt>Como desligar</dt>
+        <dd>Em <span class="path">Ajustes → Receber chamadas pelo servidor de push</span>, desligue “Acordar o celular quando chegar ligação”. O seu cadastro é apagado do servidor na hora. Se o celular estiver sem internet nesse momento, ele é apagado automaticamente em até 30 dias sem conexão. O app continua recebendo ligações pela conexão direta com o PABX enquanto estiver ativo no celular, mas pode deixar de tocar se o sistema do celular fechar o app para economizar bateria.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Avisos de ligação (Firebase Cloud Messaging)</h3><span class="tag req">Automático</span></div>
+      <dl>
+        <dt>Quais dados</dt>
+        <dd>O código de notificação do celular e um identificador de instalação, criados pelo Firebase, e dados técnicos do aparelho (como modelo, marca, versão do Android e do app), que o Firebase envia ao Google quando cria ou renova o código de notificação. O Firebase cria esses identificadores na primeira abertura do app, mesmo com o servidor de push desligado. Em cada aviso de ligação: o tipo do aviso, um código técnico da ligação, o número e o nome exibido de quem está ligando, o número do ramal e a hora do envio.</dd>
+        <dt>Para quê</dt>
+        <dd>Acordar o celular quando chega uma ligação e o app não está conectado. Segundo o Google, o identificador de instalação serve para identificar a instalação do app e entregar os avisos, e os dados técnicos são usados em estatísticas de uso de versões e plataformas, sem ligação com o usuário ou com um identificador do aparelho.</dd>
+        <dt>Para onde vai</dt>
+        <dd>O Firebase Cloud Messaging é um serviço do Google. Ele recebe o aviso do nosso servidor e o entrega ao seu celular.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>StarAPI (atendimento por WhatsApp)</h3><span class="tag opt">Só se a sua empresa usar</span></div>
+      <dl>
+        <dt>Quais dados</dt>
+        <dd>
+          <ul>
+            <li><strong>Entrada:</strong> e-mail e senha do StarAPI. A senha é usada só no momento de entrar e não fica salva no celular. O app guarda uma chave de acesso, o seu nome e o seu e-mail de atendente.</li>
+            <li><strong>Atendimento:</strong> conversas, mensagens, notas internas da equipe, respostas prontas, anexos, nome e telefone dos clientes atendidos (inclusive os que você cadastra em “Novo Atendimento”), situação da conversa e quem é o responsável por ela.</li>
+          </ul>
+        </dd>
+        <dt>Para quê</dt>
+        <dd>Atender pelo celular os clientes que falam com a sua empresa pelo WhatsApp e avisar quando chegam mensagens novas.</dd>
+        <dt>Para onde vai</dt>
+        <dd>
+          <ul>
+            <li>Para o servidor do StarAPI da Starline (<code>app.starline.tec.br</code>), onde ficam as conversas da sua empresa. A conexão passa pela rede da Cloudflare (veja a <a href="#compartilhamento">seção 5</a>). As mensagens que você envia chegam ao cliente pelo WhatsApp (plataforma WhatsApp Business, da Meta), a partir da conta comercial da sua empresa. Esse envio é feito pelo servidor, não pelo app.</li>
+            <li>Para avisar de mensagens novas, o app consulta o servidor a cada poucos segundos, inclusive com o app em segundo plano, enquanto você estiver conectado ao StarAPI.</li>
+            <li>O app abre as imagens, os anexos e as fotos de perfil nos endereços indicados pelo servidor do StarAPI. Esses endereços ficam nos servidores da própria Starline (os anexos, no armazenamento próprio dela). Quando um atendente não tem foto, o app mostra as iniciais do nome e não busca a foto em serviços de fora, como o Gravatar.</li>
+          </ul>
+        </dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Localização</h3><span class="tag opt">Opcional</span></div>
+      <dl>
+        <dt>Quando</dt>
+        <dd>Somente quando você toca em “Localização” em uma conversa do StarAPI e confirma o envio. <strong>O app não usa a localização em segundo plano.</strong></dd>
+        <dt>Para quê e para onde vai</dt>
+        <dd>O app pega a posição atual (ou a última conhecida) do celular e a transforma em um link de mapa do Google Maps, enviado na conversa. O link vai para o StarAPI e para o cliente no WhatsApp (numa nota interna, só a equipe da sua empresa vê). O app não se conecta ao Google Maps: o mapa só abre se alguém tocar no link.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Fotos, vídeos, documentos e mensagens de voz</h3><span class="tag opt">Opcional</span></div>
+      <dl>
+        <dt>Quando</dt>
+        <dd>Somente quando você anexa algo em uma conversa: da galeria, da câmera, dos arquivos do celular ou gravando uma mensagem de voz com o microfone.</dd>
+        <dt>Para onde vai</dt>
+        <dd>Para o StarAPI e para o cliente da conversa (numa nota interna, só a equipe da sua empresa vê). Uma cópia temporária pode ficar na área do app no celular até o Android limpá-la ou até o app ser desinstalado. Fotos e vídeos podem levar informações que o próprio celular grava no arquivo.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Câmera e leitura do QR Code</h3><span class="tag opt">Quando você usa</span></div>
+      <dl>
+        <dt>Para quê</dt>
+        <dd>Ler o QR Code de ativação do ramal e tirar fotos para enviar no StarAPI.</dd>
+        <dt>Como funciona</dt>
+        <dd>A imagem da câmera é analisada no próprio celular, com uma biblioteca do Google (ML Kit). Segundo o Google, essa biblioteca envia a ele informações técnicas de uso e desempenho, como modelo do aparelho, versão do Android, versão do app, um identificador por instalação, tempos de resposta e erros, para diagnóstico e estatísticas de uso da biblioteca. O Google afirma que não repassa esses dados a terceiros.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Diagnóstico para o suporte</h3><span class="tag opt">Só quando você envia</span></div>
+      <dl>
+        <dt>Como funciona</dt>
+        <dd>O app mantém na memória um registro técnico dos últimos eventos (no máximo 120), que some quando o app é encerrado. Ele só sai do celular se você tocar em <span class="path">Ajustes → Diagnóstico SIP / WebRTC → Compartilhar diagnóstico (suporte)</span> e escolher para onde enviar, como o e-mail ou o WhatsApp do suporte.</dd>
+        <dt>O que contém</dt>
+        <dd>Versão do app e do Android, ramal e domínio, endereço do servidor, situação e rota da conexão e os eventos recentes. Os eventos incluem os endereços IP do celular e as medições de qualidade das ligações. Números de telefone com 6 ou mais dígitos saem mascarados (por exemplo, ••••••••17), mas o nome de um contato da agenda, ou o nome exibido de quem ligou, pode aparecer em alguns eventos. <strong>Não contém</strong> senhas, as teclas digitadas nem a chave de acesso ao servidor de push.</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Verificação de versão nova</h3><span class="tag req">Automática</span></div>
+      <dl>
+        <dt>Como funciona</dt>
+        <dd>Ao abrir o app (no máximo a cada 6 horas), o app consulta o servidor da Starline para saber se existe uma versão mais nova. Além dos dados técnicos da própria conexão, como o endereço IP, nada é enviado: a comparação de versões é feita no celular.</dd>
+      </dl>
+    </div>
+
+    <h3>Permissões do celular</h3>
+    <p>O Android pede a sua autorização para os recursos abaixo. Você pode negar ou retirar cada uma a qualquer momento nas configurações do celular. Sem uma permissão, só o recurso que depende dela deixa de funcionar.</p>
+    <ul>
+      <li><strong>Microfone:</strong> falar nas ligações e gravar mensagens de voz no StarAPI.</li>
+      <li><strong>Notificações:</strong> mostrar a ligação recebida, as chamadas perdidas, o aviso de ramal sem conexão e as mensagens do StarAPI.</li>
+      <li><strong>Câmera:</strong> ler o QR Code e tirar fotos para o StarAPI.</li>
+      <li><strong>Chamada em tela cheia</strong> (Android 14 ou mais novo): mostrar a tela de ligação com o celular bloqueado. O app só aparece sobre a tela bloqueada durante ligações.</li>
+      <li><strong>Contatos:</strong> só quando você toca em importar a agenda do celular.</li>
+      <li><strong>Localização:</strong> só quando você envia a localização em uma conversa.</li>
+      <li><strong>Iniciar com o celular, manter a conexão e economia de bateria:</strong> reconectar o ramal sozinho depois de reiniciar o celular ou atualizar o app e manter a conexão ativa para as ligações tocarem. A liberação da economia de bateria é opcional e só é pedida se você tocar nela em Ajustes.</li>
+      <li><strong>Área de transferência:</strong> o app só lê um número copiado quando você segura o visor do discador para colar, e só copia um texto quando você toca em “Copiar texto”.</li>
+    </ul>
+    <p><strong>O app não usa</strong> o ID de publicidade do celular, não usa ferramentas de anúncios e não usa ferramentas de terceiros para acompanhar o que você faz no app. Além do leitor de QR Code (ML Kit), o Firebase envia ao Google dados técnicos do aparelho (modelo, marca, versão do Android e do app) quando cria ou renova o código de notificação, como descrito acima. Nenhum deles é usado para anúncios.</p>
+  </section>
+
+  <!-- 3 -->
+  <section id="no-celular">
+    <h2><span class="num">3.</span>O que fica só no seu celular</h2>
+    <ul>
+      <li><strong>Contatos:</strong> o app só lê a agenda quando você toca em <span class="path">Contatos → Importar Contatos → Agenda do Próprio Celular</span>. Ele traz nome, telefones e empresa. Você também pode cadastrar contatos à mão ou importar um arquivo escolhido por você. Os contatos ficam guardados apenas no app, no seu celular, e servem para mostrar nomes nas ligações e no histórico e para transferir ligações. <strong>O app não envia a sua agenda à Starline nem a ninguém.</strong> Só saem do celular o número para o qual você liga ou transfere e, se você compartilhar o diagnóstico, o nome que aparecer nele.</li>
+      <li><strong>Histórico de ligações:</strong> as 100 ligações mais recentes, com número, nome, se foi feita ou recebida, data, hora, duração e situação. Você pode apagá-lo em <span class="path">Histórico → Limpar</span>. O PABX mantém o próprio registro das ligações (veja a <a href="#dados">seção 2</a>), que não é apagado por aqui.</li>
+      <li><strong>Preferências:</strong> sons, horários de atendimento, filtros e outros ajustes do app.</li>
+      <li><strong>Notificações:</strong> a notificação de ligação sempre mostra o número e o nome de quem liga, inclusive com a tela bloqueada, para você poder atender. As notificações do StarAPI mostram o nome (ou o telefone) do cliente e o texto da mensagem e também podem aparecer na tela bloqueada. Para esconder o texto das mensagens do StarAPI, ative a opção de ocultar conteúdo sensível nas configurações do celular. No Android 11 ou mais novo, as conversas com mensagem nova também aparecem como atalhos ao segurar o ícone do app. Esses atalhos somem quando a notificação some.</li>
+      <li><strong>Proteção:</strong> a senha do ramal, a chave de acesso ao StarAPI, o histórico e os contatos ficam em uma área protegida pelo cofre de chaves do Android (Keystore). Esses dados não entram nas cópias de segurança (backup) do celular. Fora dessa área ficam apenas as cópias temporárias de anexos (seção 2) e uma preferência com o número do ramal, nunca a senha, usada para reconectar sozinho depois de reiniciar o celular.</li>
+    </ul>
+    <p>A Starline não tem acesso aos contatos, ao histórico nem às preferências guardados no celular. Eles são apagados quando você os limpa no app ou quando desinstala o app.</p>
+  </section>
+
+  <!-- 4 -->
+  <section id="bases-legais">
+    <h2><span class="num">4.</span>Bases legais (LGPD)</h2>
+    <p>Tratamos dados pessoais apenas com uma base prevista no art. 7º da LGPD:</p>
+    <ul>
+      <li><strong>Dados de que a Starline é controladora</strong> (cadastro no servidor de push, identificadores do aparelho, avisos de ligação, verificação de versão nova): legítimo interesse da Starline e da sua empresa em oferecer e usar a ferramenta de trabalho contratada (art. 7º, IX), com as salvaguardas descritas nesta política e a opção de desligar o servidor de push. Quando você mesmo é parte do contrato com a Starline, também a execução do contrato (art. 7º, V).</li>
+      <li><strong>Ligações, conversas do StarAPI e o que você envia nelas (localização, anexos, mensagens de voz):</strong> esses dados são da sua empresa, que é a controladora e define a base legal. A Starline os trata como operadora, seguindo as instruções dela. O app só envia localização e anexos quando você toca para enviar. Retirar a permissão no Android impede novos envios, mas o que já foi enviado continua na conversa da empresa.</li>
+      <li><strong>Contatos importados:</strong> ficam só no seu celular. A Starline não recebe nem trata esses dados.</li>
+      <li><strong>Dados técnicos enviados ao Google pelas bibliotecas do app</strong> (o leitor de QR Code, chamado ML Kit, e o Firebase): legítimo interesse (art. 7º, IX) em usar um leitor de QR Code e um serviço de avisos confiáveis. O Google usa esses dados também para diagnóstico e estatísticas de uso das próprias bibliotecas.</li>
+      <li><strong>Suporte técnico e diagnóstico:</strong> legítimo interesse (art. 7º, IX) em resolver os problemas que você ou a sua empresa relatarem. O diagnóstico só é enviado quando você decide.</li>
+      <li><strong>Segurança e prevenção de abuso</strong> (como limites de tentativas e registros técnicos dos servidores): legítimo interesse (art. 7º, IX).</li>
+      <li><strong>Cumprimento de lei, ordem de autoridade e defesa em processos</strong> (como a guarda dos registros de acesso descrita na <a href="#retencao">seção 7</a>): obrigação legal ou regulatória (art. 7º, II) e exercício regular de direitos (art. 7º, VI).</li>
+    </ul>
+  </section>
+
+  <!-- 5 -->
+  <section id="compartilhamento">
+    <h2><span class="num">5.</span>Com quem os dados são compartilhados</h2>
+    <div class="callout warn">
+      <p><strong>Não vendemos nem alugamos dados pessoais e não os usamos para publicidade.</strong> Os dados só são repassados nos casos abaixo.</p>
+    </div>
+    <ul>
+      <li><strong>A sua empresa (empresa cliente):</strong> ela administra os ramais e o StarAPI e, de acordo com as regras dela, tem acesso aos registros das ligações e às conversas do atendimento.</li>
+      <li><strong>Provedor de telefonia contratado pela Starline:</strong> opera o PABX. Recebe o registro do ramal, os dados de controle e a voz das ligações e guarda os registros das ligações. As ligações para números de fora seguem pelas redes das operadoras de telefonia.</li>
+      <li><strong>Google:</strong>
+        <ul>
+          <li><em>Firebase Cloud Messaging:</em> entrega os avisos de ligação e recebe os identificadores e os dados técnicos do aparelho descritos na seção 2.</li>
+          <li><em>Servidor STUN:</em> vê o endereço IP público do celular em cada ligação. Se outro servidor STUN tiver sido configurado, ele também vê esse endereço.</li>
+          <li><em>ML Kit:</em> recebe as informações técnicas da leitura do QR Code descritas na seção 2.</li>
+        </ul>
+        Política do Google: <a href="https://policies.google.com/privacy?hl=pt-BR">policies.google.com/privacy</a>; Firebase: <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.
+      </li>
+      <li><strong>Cloudflare:</strong> fornece a rede e a proteção do servidor de push e do StarAPI. A conexão do app é criptografada até a Cloudflare. Para proteger e encaminhar o tráfego, ela abre essa criptografia nos servidores dela e repassa os dados aos nossos servidores por uma conexão protegida (um túnel criptografado, tanto para o servidor de push quanto para o StarAPI). Por isso, a Cloudflare tem acesso, durante a passagem, aos dados que trafegam por ali: o cadastro do ramal (inclusive a senha, antes de ela ser cifrada no nosso servidor), os dados de controle das ligações, o e-mail e a senha no login do StarAPI e as conversas. Ela atua como prestadora de serviço, sob contrato, e não usa esses dados para fins próprios. A Starline não ativa na Cloudflare a guarda dos registros das requisições (no plano usado, essa função nem existe). Política da Cloudflare: <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a>.</li>
+      <li><strong>WhatsApp (Meta):</strong> as mensagens, os anexos e a localização que você envia ao cliente pelo StarAPI, e o telefone dele, passam pela plataforma WhatsApp Business, da Meta, a partir da conta comercial da sua empresa e conforme os termos do WhatsApp aceitos por ela. Termos e política do WhatsApp: <a href="https://www.whatsapp.com/legal">whatsapp.com/legal</a>.</li>
+      <li><strong>Pessoas ou apps que você escolher:</strong> o diagnóstico que você compartilha e as informações que você mesmo envia aos clientes em uma conversa, como localização e anexos.</li>
+      <li><strong>Autoridades:</strong> quando a lei exigir, por ordem judicial ou para proteger direitos da Starline, dos usuários ou de terceiros.</li>
+    </ul>
+    <p>Os prestadores de serviço tratam os dados para entregar o serviço, conforme os contratos com a Starline e as políticas de privacidade deles. No caso das bibliotecas do Google, também para diagnóstico e estatísticas delas, como descrito na seção 2.</p>
+  </section>
+
+  <!-- 6 -->
+  <section id="internacional">
+    <h2><span class="num">6.</span>Transferência para outros países</h2>
+    <p>O PABX e os servidores da Starline ficam no Brasil (o servidor de push e o do StarAPI, com o armazenamento dos anexos). Alguns fornecedores tratam dados fora do Brasil:</p>
+    <ul>
+      <li><strong>Google</strong> (Firebase, ML Kit e servidor STUN): identificadores do aparelho, o conteúdo dos avisos de ligação (inclusive o número e o nome de quem liga), os dados técnicos do aparelho e do leitor de QR Code e o endereço IP. Destino: Estados Unidos e outros países onde o Google tem servidores. Finalidade: entregar os avisos de ligação, manter o leitor de QR Code e montar o áudio das ligações.</li>
+      <li><strong>Cloudflare:</strong> os dados que passam pelo servidor de push e pelo StarAPI (veja a <a href="#compartilhamento">seção 5</a>). Destino: Brasil e outros países onde a Cloudflare tem servidores, inclusive os Estados Unidos. Finalidade: rede e proteção dos servidores.</li>
+      <li><strong>WhatsApp (Meta):</strong> as mensagens enviadas aos clientes pelo StarAPI. Esse envio é feito pela conta comercial da sua empresa, que é a controladora desses dados, conforme os termos do WhatsApp aceitos por ela.</li>
+    </ul>
+    <p>No caso do Google e da Cloudflare, os dados vão pela internet, por conexões criptografadas (a exceção é a consulta ao servidor STUN, que só leva o endereço IP), enquanto você usa o app, e ficam com o fornecedor pelos prazos descritos na <a href="#retencao">seção 7</a> e nas políticas dele. Essas transferências seguem os termos de proteção de dados desses fornecedores, que preveem salvaguardas para a transferência internacional de dados, conforme o art. 33 da LGPD. Você pode pedir mais informações sobre essas salvaguardas pelo e-mail de privacidade.</p>
+  </section>
+
+  <!-- 7 -->
+  <section id="retencao">
+    <h2><span class="num">7.</span>Por quanto tempo guardamos</h2>
+
+    <div class="card">
+      <h3>No seu celular</h3>
+      <ul>
+        <li>Ficam até você apagar ou desinstalar o app.</li>
+        <li>O histórico guarda só as 100 ligações mais recentes.</li>
+        <li>O diagnóstico fica só na memória e some quando o app é encerrado.</li>
+        <li>Cópias temporárias de anexos ficam até o Android limpá-las ou até o app ser desinstalado.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>No servidor de push da Starline</h3>
+      <ul>
+        <li>O cadastro do ramal fica enquanto o ramal estiver ligado ao servidor. Ele é apagado:
+          <ul>
+            <li>quando você toca em “Desconectar Ramal” (com o celular conectado à internet);</li>
+            <li>quando você desliga a opção do servidor de push (com o celular conectado à internet);</li>
+            <li>quando você troca de ramal (o cadastro do ramal anterior);</li>
+            <li>depois de desinstalar o app, quando o Google avisa o nosso servidor que o app não está mais no celular (normalmente numa das ligações seguintes);</li>
+            <li>em qualquer caso, depois de 30 dias sem o app se conectar. É assim que o cadastro é apagado se o celular estava sem internet nos casos acima.</li>
+          </ul>
+        </li>
+        <li>Uma ligação que chega enquanto o celular “dorme” fica só na memória do servidor, por até 45 segundos.</li>
+        <li>Registros técnicos do servidor (identificador do aparelho, ramal e motivos de erro; sem o número de quem liga, sem senhas, sem chaves e sem endereços IP): ficam só no servidor e são apagados a cada atualização ou reinício dele, normalmente em poucas semanas.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Registros de acesso</h3>
+      <ul>
+        <li>Registros de acesso ao servidor de push (endereço IP, data e hora de cada acesso e o aparelho ou ramal usado): 6 meses, em sigilo, como exige o art. 15 do Marco Civil da Internet (Lei nº 12.965/2014). Nunca incluem a senha nem a chave do aparelho. Os registros de acesso do StarAPI seguem o mesmo prazo.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>No PABX e no StarAPI</h3>
+      <ul>
+        <li>Registros das ligações no PABX: pelo prazo definido pelo provedor de telefonia e pela regulação de telecomunicações aplicável. Gravações, quando ativadas para a sua empresa: 3 meses.</li>
+        <li>Conversas, anexos e contatos do StarAPI: enquanto durar o contrato da sua empresa e até 90 dias depois do fim, quando são apagados, salvo instrução diferente da empresa.</li>
+        <li>Diagnósticos recebidos pelo suporte: até 90 dias depois de encerrado o atendimento.</li>
+      </ul>
+    </div>
+
+    <p>Google, Cloudflare e WhatsApp guardam dados conforme as políticas deles. O código de notificação do Firebase deixa de valer quando o app é desinstalado.</p>
+    <p>Terminado o prazo, os dados são apagados ou anonimizados. Podemos mantê-los por mais tempo apenas nos casos do art. 16 da LGPD, como para cumprir uma obrigação legal ou regulatória.</p>
+  </section>
+
+  <!-- 8 -->
+  <section id="seguranca">
+    <h2><span class="num">8.</span>Segurança</h2>
+    <ul>
+      <li><strong>Conexões criptografadas:</strong> o cadastro, a sinalização das ligações, o StarAPI, o Firebase e o leitor de QR Code usam HTTPS ou WebSocket seguro (TLS). A voz usa outra criptografia, explicada no próximo item. A única consulta sem criptografia é a do servidor STUN, que não leva nenhum dado além do endereço IP. O app recusa conexões de dados sem criptografia e só aceita certificados de autoridades confiáveis do sistema Android; certificados instalados pelo usuário não são aceitos. Para os servidores da Starline, um certificado vencido há até 180 dias ainda é aceito se, antes de vencer, era válido e emitido por uma autoridade confiável, para as ligações não pararem enquanto ele é renovado.</li>
+      <li><strong>Voz:</strong> é criptografada (DTLS-SRTP) entre o app e o PABX. Do PABX em diante, a ligação segue pelas redes das operadoras de telefonia. Por isso, a criptografia não é de ponta a ponta.</li>
+      <li><strong>Senha do ramal:</strong>
+        <ul>
+          <li>não é enviada em texto ao PABX;</li>
+          <li>no celular, fica na área protegida pelo cofre de chaves do Android;</li>
+          <li>no caminho até o servidor de push, a Cloudflare tem acesso a ela de passagem, antes de ela ser cifrada no nosso servidor (veja a <a href="#compartilhamento">seção 5</a>);</li>
+          <li>no servidor de push, fica cifrada (AES-256-GCM), em arquivo de acesso restrito;</li>
+          <li>a chave de acesso do aparelho fica no servidor só como <em>hash</em>.</li>
+        </ul>
+      </li>
+      <li><strong>StarAPI:</strong> a senha não fica salva no celular, só a chave de acesso, também na área protegida.</li>
+      <li><strong>Registros técnicos:</strong> os registros técnicos do servidor de push não guardam o número de quem liga, senhas, chaves nem endereços IP. Endereços IP só ficam nos registros de acesso descritos na <a href="#retencao">seção 7</a>.</li>
+      <li><strong>No celular:</strong> os dados do app não entram nas cópias de segurança do celular, e o app só aparece sobre a tela bloqueada durante ligações.</li>
+      <li><strong>Acesso restrito:</strong> só a equipe técnica autorizada da Starline tem acesso administrativo aos servidores da Starline.</li>
+      <li><strong>Incidentes:</strong> se houver um incidente de segurança que possa trazer risco ou dano relevante, comunicaremos a ANPD e os titulares afetados, como preveem o art. 48 da LGPD e a Resolução CD/ANPD nº 15/2024, quando a Starline for a controladora. Quando os dados forem da sua empresa, avisaremos a empresa sem demora e a ajudaremos a fazer as comunicações.</li>
+    </ul>
+    <div class="callout">
+      <p><strong>Você também ajuda a proteger seus dados:</strong> use bloqueio de tela no celular e não compartilhe o QR Code nem a senha do ramal, porque eles dão acesso ao seu ramal. Se perder o celular, avise a sua empresa para trocar a senha do ramal e do StarAPI.</p>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section id="direitos">
+    <h2><span class="num">9.</span>Seus direitos e como exercê-los</h2>
+    <p>Pelo art. 18 da LGPD, você pode pedir:</p>
+    <ul>
+      <li>confirmação de que tratamos dados seus;</li>
+      <li>acesso aos seus dados;</li>
+      <li>correção de dados incompletos, errados ou desatualizados;</li>
+      <li>anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desacordo com a LGPD;</li>
+      <li>portabilidade dos dados a outro fornecedor, conforme a regulamentação da ANPD;</li>
+      <li>eliminação dos dados tratados com o seu consentimento;</li>
+      <li>informação sobre com quem compartilhamos os seus dados;</li>
+      <li>informação sobre a possibilidade de não dar consentimento e o que acontece se você não der;</li>
+      <li>revogação do consentimento.</li>
+    </ul>
+    <p>Você também pode se opor a um tratamento baseado em legítimo interesse se achar que ele não respeita a LGPD.</p>
+    <p><strong>Como pedir:</strong> envie um e-mail para <a href="mailto:connect@starline.tec.br">connect@starline.tec.br</a>. Informe o seu nome, a empresa em que trabalha (ou com a qual conversou pelo WhatsApp) e o que deseja. Podemos pedir uma confirmação de identidade para proteger os seus dados. A confirmação e o acesso em formato simplificado são respondidos de imediato. A declaração completa (origem dos dados, critérios usados e finalidade do tratamento) sai em até 15 dias a partir do pedido (art. 19 da LGPD). Os demais pedidos são respondidos no menor prazo possível, que informaremos na resposta.</p>
+    <p>Quando o pedido tratar de dados que a sua empresa controla (ligações e conversas do StarAPI), nós o encaminharemos a ela e a ajudaremos a responder.</p>
+    <p>Se não ficar satisfeito, você pode apresentar uma reclamação à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>: <a href="https://www.gov.br/anpd">gov.br/anpd</a>.</p>
+  </section>
+
+  <!-- 10 -->
+  <section id="apagar">
+    <h2><span class="num">10.</span>Como apagar seus dados</h2>
+    <h3>No próprio app</h3>
+    <ul class="steps">
+      <li><span class="path">Histórico → Limpar</span>: apaga o histórico de ligações do celular.</li>
+      <li><span class="path">Contatos → Limpar Tudo</span>: apaga a agenda do app.</li>
+      <li><span class="path">Ajustes → Receber chamadas pelo servidor de push</span>: desligar “Acordar o celular quando chegar ligação” apaga na hora o seu cadastro no servidor de push. Se o celular estiver sem internet nesse momento, ele é apagado automaticamente em até 30 dias sem conexão (<a href="#retencao">seção 7</a>).</li>
+      <li><span class="path">Ajustes → Desconectar Ramal / Trocar de Conta</span>: desconecta o ramal deste celular e apaga na hora o cadastro dele no servidor de push (se o celular estiver sem internet nesse momento, o cadastro é apagado automaticamente em até 30 dias sem conexão). A lista de ramais salvos continua no celular, protegida, para facilitar uma nova conexão. Para apagar também essa lista, com as senhas, exclua os ramais em Gerenciar Ramais antes de desconectar, ou desinstale o app.</li>
+      <li><span class="path">Gerenciar Ramais</span> (toque no indicador de status no topo da tela) <span class="path">→ excluir o ramal</span>: apaga do celular os dados daquele ramal, inclusive a senha. Se for o último ramal salvo, toque logo depois, ainda com o app aberto, em <span class="path">Ajustes → Desconectar Ramal / Trocar de Conta</span> para apagar também o cadastro dele no servidor de push.</li>
+      <li><span class="path">Ajustes → StarAPI (WhatsApp) → Desconectar</span>: apaga do celular a chave de acesso ao StarAPI. Para invalidar a chave também no servidor, peça ao administrador do StarAPI da sua empresa ou a nós.</li>
+      <li><strong>Desinstalar o app</strong> apaga tudo o que ele guardou no celular. Antes de desinstalar, toque em “Desconectar Ramal”, com o celular conectado à internet, para que o cadastro no servidor de push seja apagado na hora. Se não fizer isso, ele é apagado automaticamente, como explicado na <a href="#retencao">seção 7</a>.</li>
+    </ul>
+    <h3>Dados nos servidores</h3>
+    <p>Para pedir a exclusão dos dados guardados nos servidores da Starline (servidor de push e diagnósticos enviados ao suporte), escreva para <a href="mailto:connect@starline.tec.br">connect@starline.tec.br</a>. Registros de ligações e conversas do StarAPI pertencem à sua empresa: encaminharemos o pedido a ela, que decide sobre a exclusão, respeitando os prazos que a lei obriga a guardar.</p>
+  </section>
+
+  <!-- 11 -->
+  <section id="menores">
+    <h2><span class="num">11.</span>Crianças e adolescentes</h2>
+    <p>O Starline Softphone é uma ferramenta de trabalho para uso profissional, entregue pelas empresas clientes da Starline aos seus funcionários e colaboradores. Ele não é direcionado a crianças nem a adolescentes. Se a sua empresa der acesso a um adolescente (por exemplo, um jovem aprendiz), ela é responsável por esse uso, e os dados serão tratados no melhor interesse dele (art. 14 da LGPD). Se soubermos de uso por uma criança, avisaremos a empresa responsável e apagaremos os dados de que formos controladores.</p>
+  </section>
+
+  <!-- 12 -->
+  <section id="alteracoes">
+    <h2><span class="num">12.</span>Alterações nesta política</h2>
+    <p>Podemos atualizar esta política quando o app ganhar funções novas ou quando a lei mudar. A data da última atualização fica no topo da página. Mudanças importantes serão avisadas no app, na página do app na loja ou pela sua empresa antes de entrarem em vigor. Versões anteriores podem ser pedidas pelo e-mail de privacidade.</p>
+  </section>
+
+  <!-- 13 -->
+  <section id="contato">
+    <h2><span class="num">13.</span>Contato e encarregado de dados</h2>
+    <div class="contact">
+      <dl>
+        <dt>Controladora</dt>
+        <dd>Starline Tecnologia e Comunicação Ltda — CNPJ 51.006.857/0001-50</dd>
+        <dt>Endereço</dt>
+        <dd>Rua Santos Dumont, 1022, Sala 202, Bairro Languiru, Teutônia/RS, CEP 95890-000</dd>
+        <dt>E-mail de privacidade</dt>
+        <dd><a href="mailto:connect@starline.tec.br">connect@starline.tec.br</a></dd>
+        <dt>Telefone</dt>
+        <dd>(51) 2319-0300</dd>
+        <dt>Site</dt>
+        <dd><a href="https://starline.tec.br">starline.tec.br</a></dd>
+        <dt>Encarregado pelo tratamento de dados pessoais (LGPD, art. 41)</dt>
+        <dd>Lucas da Silva Wiebusch — <a href="mailto:connect@starline.tec.br">connect@starline.tec.br</a></dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <p>Esta Política de Privacidade vale para o aplicativo <strong>Starline Softphone</strong> para Android (<code>br.tec.starline.softphone</code>), distribuído pela Google Play e pela Starline.</p>
+    <p>Endereço desta página: <a href="https://privacidade.starline.tec.br/">https://privacidade.starline.tec.br/</a></p>
+    <p>Starline Tecnologia e Comunicação Ltda · Teutônia/RS</p>
+  </div>
+</footer>
+
+</body>
+</html>
